@@ -44,9 +44,11 @@ function removeSpinTag() {
 
 /* Adds the "spin" class to "roulette-icon" to make it spin */
 function spinRoulette() {
-    rouletteTable.classList.add("spin");
+    if (!rouletteTable.classList.contains("spin")) {
+        rouletteTable.classList.add("spin");
     rouletteBtn.disabled = true;
     rouletteBtn.style.pointerEvents = "none";
     /* Waits 1 second then executes removeSpinTag */
     setTimeout(removeSpinTag, 1000);
+}
 };
