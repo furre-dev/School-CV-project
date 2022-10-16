@@ -3,15 +3,6 @@
     align-items: center;
 }
 
-.try-me {
-    color: white;
-    position: absolute;
-    top: 31em;
-    rotate: -15deg;
-    font-size: 1.5em;
-    font-family: "Kalam";
-}
-
 .buttons {
     height: 100%;
     display: flex;

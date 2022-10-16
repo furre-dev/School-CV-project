@@ -12,10 +12,12 @@ body {
     align-items: center;
     font-family: "Roboto";
     background: radial-gradient(circle, rgba(231, 231, 231, 1) 0%, rgba(255, 255, 255, 1) 100%);
+    overflow-x: hidden;
+
 }
 
 .main-container {
-    width: 100%;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     height: fit-content;
@@ -43,13 +45,11 @@ body {
 
 .main-header {
     width: 60%;
-    display: grid;
-    grid-template-columns: minmax(auto, 10em) minmax(auto, 50em);
-    grid-template-rows: 1fr 1fr;
-    grid-template-areas:
-        "profile-pic profile-text"
-        "profile-pic .";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    text-align: center;
 }
 
 .profile-img {
@@ -77,9 +77,8 @@ body {
 
 .skills-container {
     width: 80%;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    padding: 1em 0 2em 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .skills-container>* {
@@ -90,14 +89,17 @@ body {
     list-style: none;
     text-align: center;
     line-height: 3em;
+}
 
+.skills-line {
+    display: none;
 }
 
 
 
 
-.skills-container ul:nth-last-child(-n+2) {
-    border-left: 1px solid #a2a2a2;
+.skills-container ul:nth-last-child(-n+3) {
+    border-top: 1px solid #a2a2a2;
 }
 
 .skills-container ul h1 {
@@ -149,10 +151,11 @@ body {
     background-color: #9A77CF;
     width: 98%;
     max-width: 100%;
-    height: 30em;
+    padding: 2rem 1rem;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    flex-direction: column;
     box-shadow: inset 0 0 30px 0 rgba(0, 0, 0, 1);
     border-radius: 1em;
 }
@@ -160,21 +163,22 @@ body {
 .article-text {
     display: flex;
     flex-direction: column;
+    justify-items: center;
 }
 
 .article-h1 {
     color: white;
-    width: 10em;
-    font-size: 4em;
+    max-width: 10em;
+    font-size: 2.5em;
     font-weight: 500;
-    ;
+    text-align: center;
 }
 
 .article-p {
     margin-top: 1em;
     color: white;
     font-size: 1.2em;
-    width: 20em;
+    max-width: 20em;
     font-style: italic;
     font-weight: 100;
 }
@@ -183,7 +187,6 @@ body {
     color: #9A77CF;
     text-align: center;
     margin-top: 4em;
-    align-self: flex-start;
     text-decoration: none;
     font-style: italic;
     border: 1px solid #363075;
@@ -193,6 +196,10 @@ body {
     font-weight: 200;
 
     transition: .4s;
+}
+
+.article-content {
+    margin: 1em 0;
 }
 
 .article-git:hover {
@@ -205,13 +212,7 @@ body {
     background: #EC4176;
 }
 
-#second-article .article-text {
-    align-items: flex-end;
-    text-align: right;
-}
-
 #second-article .article-git {
-    align-self: flex-end;
     color: #EC4176;
 }
 
@@ -259,12 +260,99 @@ img.spin {
     transition: .4s;
 }
 
-.click-me {
-    color: white;
-    position: absolute;
-    top: 73em;
-    left: 45em;
-    rotate: -10deg;
-    font-size: 1.5em;
-    font-family: "Kalam";
+/* Light mode dark mode toggle CSS starts here! */
+
+:root {
+    --lightmode-background-color: #DFE6E9;
+    --darkmode-background-color: #2D3436;
+    ;
+    --light-text-color: white;
+    --dark-text-color: black;
+}
+
+#fourht-article.light-mode {
+    background: var(--lightmode-background-color);
+}
+
+#fourht-article.dark-mode {
+    background: var(--darkmode-background-color);
+}
+
+#light-toggle-button {
+    background: none;
+    border: none;
+}
+
+#fourht-article.light-mode .article-text h1,
+#fourht-article.light-mode .article-text p {
+    color: var(--dark-text-color);
+}
+
+#fourht-article.light-mode .article-git {
+    background: none;
+    color: #363075;
+}
+
+#fourht-article.dark-mode .article-text h1,
+#fourht-article.dark-mode .article-text p,
+#fourht-article.dark-mode .article-text a {
+    color: var(--light-text-color);
+}
+
+
+.sun-and-moon {
+    width: 15rem;
+    transition: .4s;
+    cursor: pointer;
+}
+
+.sun-and-moon:hover {
+    scale: 1.05;
+}
+
+
+@media (min-width: 1024px) {
+    .article {
+        flex-direction: row;
+        max-width: 80rem;
+    }
+
+    .main-header {
+        display: grid;
+        grid-template-columns: minmax(auto, 10em) minmax(auto, 50em);
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas:
+            "profile-pic profile-text"
+            "profile-pic .";
+        align-items: center;
+        text-align: center;
+    }
+
+    .skills-container {
+        justify-content: space-around;
+        flex-direction: row;
+        width: 80rem;
+    }
+
+    .skills-line {
+        display: block;
+        padding: 0 !important;
+        width: .1rem !important;
+        background: #606060;
+
+    }
+
+    .skills-container ul:nth-last-child(-n+3) {
+        border-top: none;
+    }
+
+    .article-text h1,
+    .article-text p {
+        text-align: left;
+    }
+
+    #second-article .article-text h1,
+    #second-article .article-text p {
+        text-align: right;
+    }
 }

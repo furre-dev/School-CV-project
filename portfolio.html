@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="nav-bar.css">
     <link rel="stylesheet" href="trafficLight.css">
     <link rel="stylesheet" href="barcodeGenerator.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js"
+        defer></script>
     <script src="script.js" defer></script>
     <script src="trafficLight.js" defer></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/jsbarcode@3.11.5/dist/JsBarcode.all.min.js" async
-        defer></script>
     <title>Homepage</title>
 </head>
 
@@ -24,7 +24,6 @@
             <h1>Furkan Abay</h1>
             <div class="menu">
                 <a href="index.html">Hem</a>
-                <a href="#">Om Mig</a>
                 <a href="portfolio.html" class="is-active">Portfolio</a>
                 <a href="https://github.com/furreabay">Github</a>
                 <a href="cv.html">CV</a>
@@ -38,7 +37,6 @@
         <nav class="mobile-nav">
             <div class="mobile-menu">
                 <a href="index.html">Hem</a>
-                <a href="#">Om Mig</a>
                 <a href="#" class="is-active">Portfolio</a>
                 <a href="https://github.com/furreabay">Github</a>
                 <a href="cv.html">CV</a>
@@ -66,11 +64,13 @@
                     <li>Photoshop</li>
                     <div id="photoshop-progress-bar"></div>
                 </ul>
+                <div class="skills-line"></div>
                 <ul class="education">
                     <h1>Education</h1>
                     <li>Chasacademy</li>
                     <li>Södertörns Gymnasium</li>
                 </ul>
+                <div class="skills-line"></div>
                 <ul class="languages">
                     <h1>Languages</h1>
 
@@ -88,12 +88,11 @@
                     <p class="article-p">This project was the first school project where
                         I was instructed to create a traffic light using
                         the CSS Flexbox layout. I decided to add simple javascript
-                        to add functionality.
+                        to add functionality. <br>Try to click on the RED button when the light already shows red!
                     </p>
                     <a href="#" class="article-git">Click to get to the Github repository!</a>
                 </div>
                 <div class="light-container  article-content">
-                    <p class="try-me">Try me!</p>
                     <div class="buttons">
                         <button class="red-btn btn" onclick="redLightBox()"></button>
                         <button class="green-btn btn" onclick="greenLightBox()"></button>
@@ -126,17 +125,31 @@
                     <h1 class="article-h1">Java Roulette Game (Console only)</h1>
                     <p class="article-p">This project was made in 2021 when I took a Java course and
                         wanted to make a cool project which I never built visuals for. It's a Roulette gambling
-                        game wihtout visuals. You can choose enter bet amount and what to bet on via the console.
+                        game wihtout visuals. Click on the roulette icon to make it spin!
                     </p>
                     <a href="#" class="article-git">Click to get to the Github repository!</a>
                 </div>
                 <div class="roulette-image  article-content" onclick="spinRoulette()">
-                    <p class="click-me">Click me!</p>
                     <button id="roulette-btn">
                         <img id="roulette-icon" src="/sources/images/roulette.png" onclick="spinRoulette()">
                     </button>
                 </div>
             </section>
+            <section class="article light-mode" id="fourht-article">
+                <div class="article-text">
+                    <h1 class="article-h1">Light & Dark mode toggle!</h1>
+                    <p class="article-p">This project was made just because of pure boredoom at 02:56AM in my bed!
+                        Click on the moon or sun to toggle between dark and light mode.
+                    </p>
+                    <a href="#" class="article-git">Click to get to the Github repository!</a>
+                </div>
+                <main class="sun-and-moon-container article-content" id="sun-moon-container">
+                    <button onclick="lightDarkToggle()" id="light-toggle-button">
+                        <img id="sun-and-moon-image" class="sun-and-moon" src="/img/sun-and-moon-icons/moon-icon.png">
+                    </button>
+                </main>
+            </section>
+
 
         </div>
 
