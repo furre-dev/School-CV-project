@@ -64,10 +64,10 @@ function lightDarkToggle() {
     if (container.classList.contains("light-mode")) {
         container.classList.remove("light-mode");
         container.classList.add("dark-mode")
-        sunAndMoon.src = "/img/sun-and-moon-icons/sun-icon.png";
+        sunAndMoon.src = "img/sun-and-moon-icons/sun-icon.png";
     } else if (container.classList.contains("dark-mode")) {
         container.classList.remove("dark-mode");
         container.classList.add("light-mode");
-        sunAndMoon.src = "/img/sun-and-moon-icons/moon-icon.png";
+        sunAndMoon.src = "img/sun-and-moon-icons/moon-icon.png";
     }
 }
